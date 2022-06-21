@@ -1,0 +1,10 @@
+# Idea Project
+.idea/
+# Python
+__pycache__
+# virtual environment
+.venv
+# setting
+/config/my_settings.py
+
+README.md
