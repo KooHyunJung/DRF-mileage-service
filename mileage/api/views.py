@@ -1,27 +1,29 @@
-from rest_framework import generics, mixins
+from django.db.migrations import serializer
+from rest_framework import generics, mixins, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from mileage.api.serializers import ReviewSerializer, PointSerializer
+from mileage.api.services import creat_review_and_point_count, update_review_and_point_count, \
+    delete_review_and_point_count
 from mileage.models import Review, Point
 
 
-class EventGeneric(generics.ListCreateAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-    # permission_classes = [IsAdminUser]
-
-    def get(self, request, *args, **kwargs):
-        if "action" == "DELETE":
-            pass
-
-        return self.list(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        if "action" == "ADD":
-            pass
-        if "action" == "MOD":
-            pass
-
-        return self.create(request, *args, **kwargs)
+class EventAPIView(APIView):
+    def post(self, request):
+        if "type" == "REVIEW":
+            # creat
+            if "action" == "ADD":
+                data = creat_review_and_point_count(request)
+                return Response(data, status=status.HTTP_201_CREATED)
+            # update
+            elif "action" == "MOD":
+                data = update_review_and_point_count(request)
+                return Response(data, status=status.HTTP_200_OK)
+            # delete
+            elif "action" == "DELETE":
+                delete_review_and_point_count(request)
+                return Response(status=status.HTTP_200_OK)
 
 
 # user point 조회 api
