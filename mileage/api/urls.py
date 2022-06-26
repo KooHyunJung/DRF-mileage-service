@@ -1,8 +1,8 @@
 from django.urls import path
 
-from mileage.api.views import EventAPIView, PointMixins
+from mileage.api.views import event_api, PointMixins
 
 urlpatterns = [
-    path("events", EventAPIView.as_view()),
+    path("events", event_api),
     path("points/<int:user_id>", PointMixins.as_view())
 ]

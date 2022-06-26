@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.auth.models import User
 
 from mileage.models import ReviewPhoto, Review, Point, Place, PlaceHistory
 
@@ -10,7 +9,6 @@ admin.site.register(PlaceHistory)
 
 class ReviewPhotoInline(admin.TabularInline):
     model = ReviewPhoto
-    min_num = 1
     verbose_name = "ReviewPhoto"
 
 
