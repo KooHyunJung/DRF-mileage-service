@@ -1,16 +1,16 @@
 from rest_framework import serializers
 
 from mileage.models.point import Point
-from mileage.models.review import Review
+from mileage.models.event import Event
 
 
-class ReviewSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Review
-        fields = ("id", "user_id", "place_id", "content", "photo_id")
+        model = Event
+        fields = ("type", "action", "reviewId", "content", "attachedPhotoIds", "userId", "placeId")
 
 
 class PointSerializer(serializers.ModelSerializer):
     class Meta:
         model = Point
-        fields = ("user_id", "total")
+        fields = ("user_id", "point_total")
