@@ -19,5 +19,6 @@ user 모델 따로 생성하지 않고 진행
 - `PointHistory` : Review, Point 1 : N 연결, 리뷰에 대한 point 정보
 
 ##  API
-![스크린샷 2022-06-28 오후 11 16 56](https://user-images.githubusercontent.com/96563289/176205150-3669d00b-6eed-4412-ab01-b17d7e7e9583.png)
 
+
+![스크린샷 2022-06-28 오후 11 30 30](https://user-images.githubusercontent.com/96563289/176206858-18eb9265-64af-4685-a391-654ba0910334.png)
