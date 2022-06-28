@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mileage.models import Place, PlaceHistory, Point, PointHistory, Review, Event
+from mileage.models import Event, Place, PlaceHistory, Point, PointHistory, Review
 
 admin.site.register(Point)
 admin.site.register(PointHistory)

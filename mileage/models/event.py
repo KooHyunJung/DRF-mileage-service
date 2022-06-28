@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Event(models.Model):
-    type = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=True)
-    action = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=True)
+    type = models.CharField(max_length=50)
+    action = models.CharField(max_length=50)
     reviewId = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=True)
     content = models.TextField()
     attachedPhotoIds = models.TextField(blank=True)
@@ -14,4 +14,3 @@ class Event(models.Model):
     placeId = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
